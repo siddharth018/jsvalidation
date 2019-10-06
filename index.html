@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js form validation</title>
+</head>
+<body>
+    <div id="error"></div>
+    <form action="" name="signform" method="post" onsubmit="return validationform()">
+        <div>
+            Name: <input type="text" name="name"> </br>
+            Password: <input type="text" name="password"> </br>
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <script>
+        function validationform()
+        {
+            var name = document.signform.name.value;
+            var password = document.signform.password.value;
+            if (name == '' || name =='null') 
+            {
+                document.getElementById('error').innerHTML = 'Name can not be blank';   
+                return false;
+            }
+            else if (password == '' || password == 'null') {
+                document.getElementById('error').innerHTML = 'Password can not be blank';
+                return false;
+            }
+            else if (password.length < 6) {
+                document.getElementById('error').innerHTML = 'Password cannot be less than 6 digit';
+                return false;
+            }
+            else if (password == 'password') {
+                document.getElementById('error').innerHTML = 'Password cannot be same as a password';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
